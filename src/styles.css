@@ -8,6 +8,8 @@ body * { box-sizing: inherit; }
 	font-style: normal;
 	font-size: 32px;
 	line-height: 18px;
+	transition: transform .3s ease-out;
+	transform-origin: center 11px;
 }
 
 .nav-item-name {
@@ -30,9 +32,13 @@ body * { box-sizing: inherit; }
 .nav-item .nav-item { margin-left: 20px; }
 
 .nav-item.expanded>.nav-item-name>.chevron { transform: rotate(90deg); }
+
 /* .nav-item .nav-items { display: none; }
 .nav-item.expanded>.nav-items { display: block; } */
 
 
-.nav-item .nav-items { height: 0; overflow: hidden; opacity: 0; transition: opacity .6s ease-out; }
-.nav-item.expanded>.nav-items { height: auto; opacity: 1; }
+/* .nav-item .nav-items { height: 0; overflow: hidden; opacity: 0; transition: opacity .6s ease-out; }
+.nav-item.expanded>.nav-items { height: auto; opacity: 1; } */
+
+.nav-item .nav-items { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0, 1.05, 0, 1);}
+.nav-item.expanded>.nav-items { max-height: 1000px; transition: max-height 0.8s ease-in;  }
