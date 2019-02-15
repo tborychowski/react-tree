@@ -29,8 +29,10 @@ body * { box-sizing: inherit; }
 }
 .nav-item .nav-item { margin-left: 20px; }
 
-.nav-item .nav-items { display: none; }
-
-
 .nav-item.expanded>.nav-item-name>.chevron { transform: rotate(90deg); }
-.nav-item.expanded>.nav-items { display: block; }
+/* .nav-item .nav-items { display: none; }
+.nav-item.expanded>.nav-items { display: block; } */
+
+
+.nav-item .nav-items { height: 0; overflow: hidden; opacity: 0; transition: opacity .6s ease-out; }
+.nav-item.expanded>.nav-items { height: auto; opacity: 1; }
