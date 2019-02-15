@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 class Tree extends Component {
 	onItemClick (e) {
 		e.stopPropagation();
-		e.target.closest('li').classList.toggle('expanded');
+		const li = e.target.closest('li');
+		const isExpanded = li.classList.contains('expanded');
+		if (isExpanded) li.classList.remove('expanded');
+		else {
+			li.parentNode
+				.querySelectorAll('.nav-item')
+				.forEach(el => el.classList.remove('expanded'));
+			li.classList.add('expanded');
+		}
 	}
 
 	arrayToTree (data, parentId) {
